@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
+
+group = 'ai.langframework.langdata-dev.vector-connectors.weaviate-connector'
+version = '0.0.1'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    implementation project (":lang-data-core")
+
+    // Weaviate Connector (Author: Weaviate | Official)
+    implementation 'io.weaviate:client:4.3.0'
+    implementation 'org.json:json:20231013'
+
+    //models modules
+    implementation project (":lang-data-model-connectors:lang-data-openai-connector")
+    implementation project (":lang-data-model-connectors:lang-data-cohere-connector")
+    implementation project (":lang-data-file-connectors:lang-data-text-connector")
+
+
+}
+
+test {
+    useJUnitPlatform()
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+}

@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
+
+group = 'ai.langframework.langdata-dev.saas-connectors.s3-connector'
+version = '0.0.1'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    implementation project (":lang-data-core")
+    implementation project (":lang-data-file-connectors:lang-data-csv-connector")
+    implementation project (":lang-data-file-connectors:lang-data-docx-connector")
+    implementation project (":lang-data-file-connectors:lang-data-html-connector")
+    implementation project (":lang-data-file-connectors:lang-data-json-connector")
+    implementation project (":lang-data-file-connectors:lang-data-pdf-connector")
+    implementation project (":lang-data-file-connectors:lang-data-pptx-connector")
+    implementation project (":lang-data-file-connectors:lang-data-text-connector")
+
+    // amazon s3
+    implementation 'com.amazonaws:aws-java-sdk-s3:1.12.604'
+    implementation 'software.amazon.awssdk:bom-internal:2.20.161'
+    implementation 'software.amazon.awssdk:s3:2.20.161'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+}

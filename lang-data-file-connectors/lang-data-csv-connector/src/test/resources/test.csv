@@ -1,0 +1,16 @@
+ID,Description,Name,Value 1,Value 2,Value 3,Value 4,Value 5,Value 6,Value 7
+11,"MySQL Database Connector",DBConnect Inc.,100,2500.00,500.00,50,Global,Database & Storage Systems,1.0
+12,"Amazon S3 Storage Connector",CloudData Sync,200,3000.00,750.00,60,Global,Database & Storage Systems,0.9
+13,"CSV File Reader",FileHandler Ltd.,150,1500.00,300.00,30,Global,File Types & File Systems,1.1
+14,"NTFS File System Manager",StorageKit Co.,250,3500.00,650.00,70,Global,File Types & File Systems,0.95
+15,"Google Drive API Connector",NetServices LLC,300,4000.00,800.00,80,Global,Web & Internet Services,1.2
+16,"Twitter Data Fetcher",SocialIntegrator,350,4500.00,850.00,85,Global,Web & Internet Services,0.85
+17,"Salesforce CRM Connector",SaaSync Inc.,400,5000.00,900.00,90,Global,Enterprise & SaaS Services,1.05
+18,"SAP ERP Integration Connector",BizConnectors,450,5500.00,1000.00,95,Global,Enterprise & SaaS Services,0.99
+19,"IoT Device Communication Gateway",IoTComms Ltd.,500,6000.00,1100.00,100,Global,Misc & Specialized Connectors,1.3
+20,"3D Printer Interface",MakerConnect,550,6500.00,1200.00,105,Global,Misc & Specialized Connectors,0.88
+21,"Oracle DB Connector",DBConnect Inc.,600,7000.00,1300.00,110,Global,Database & Storage Systems,1.1
+22,"Hadoop HDFS Connector",DataHive Corp.,650,7500.00,1400.00,115,Global,Database & Storage Systems,0.97
+23,"Adobe PDF Manipulator",DocuWiz Co.,700,8000.00,1500.00,120,Global,File Types & File Systems,1.15
+24,"Shopify eCommerce Integrator",WebMerchants Inc.,750,8500.00,1600.00,125,Global,Web & Internet Services,1.0
+25,"Microsoft Dynamics 365 Connector",CorpFlow Solutions,800,9000.00,1700.00,130,Global,Enterprise & SaaS Services,1.05

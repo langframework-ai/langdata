@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
+
+group = 'ai.langframework.langdata-dev.saas-connectors.zapier-connector'
+version = '0.0.1'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    implementation project (":lang-data-core")
+
+    implementation 'com.squareup.okhttp3:okhttp:3.14.9'
+
+    // https://mvnrepository.com/artifact/cn.hutool/hutool-json
+    implementation 'cn.hutool:hutool-json:5.8.22'
+
+}
+
+test {
+    useJUnitPlatform()
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+}

@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
+
+group = 'ai.langframework.langdata-dev.vector-connectors.pgvector-connector'
+version = '0.0.1'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    //
+    implementation project (":lang-data-core")
+    //models modules
+    implementation project (":lang-data-model-connectors:lang-data-openai-connector")
+    implementation project (":lang-data-model-connectors:lang-data-cohere-connector")
+    implementation project (":lang-data-file-connectors:lang-data-text-connector")
+
+    // Pg Vector Connector (Author: Andrew Kane  | Official)
+    implementation 'com.pgvector:pgvector:0.1.3'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+}

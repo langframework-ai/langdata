@@ -1,0 +1,30 @@
+
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
+
+group 'ai.langframework.langdata-dev'
+version '0.0.1'
+
+repositories {
+    mavenCentral()
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+}
