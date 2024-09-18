@@ -28,3 +28,9 @@ publishing {
         }
     }
 }
+
+tasks.named('test') {
+    useJUnitPlatform {
+        excludeTags 'requiresApiKey'
+    }
+}
