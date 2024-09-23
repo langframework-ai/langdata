@@ -27,12 +27,10 @@ public class PgvectorConnectorTest {
      private static final String TEXT_URL = PathFileConstants.TEXT_FILE_URL;
 
     @BeforeAll
-    void initializeclient() throws SQLException {
-
+    void initializeClient() throws SQLException {
         Assumptions.assumeTrue(openAiKey != null && !openAiKey.isEmpty(), "Open AI API key not set");
         Assumptions.assumeTrue(username != null && !username.isEmpty(), "Pgvector username not set");
         Assumptions.assumeTrue(password != null && !password.isEmpty(), "Pgvector password not set");
-
         client = new PgvectorConnector();
         client.setDriver(driver);
         client.setUrl(url);
@@ -66,7 +64,6 @@ public class PgvectorConnectorTest {
         columns.put("vector", "vector(1536)");
         columns.put("text", "text");
         // Add more columns as needed
-
         String result = connectorClient.createTable("test", columns);
         assertNotNull(result);
         assertEquals("Created Successfully",result);

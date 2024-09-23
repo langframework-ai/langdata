@@ -23,7 +23,7 @@ class CohereAIConnectorTest {
     private static final String TEXT_URL = PathFileConstants.TEXT_FILE_URL;
 
     @BeforeAll
-    void initializeclient(){
+    void initializeClient(){
         Assumptions.assumeTrue(cohereApiKey != null && !cohereApiKey.isEmpty(), "API key not set");
         client = new CohereAIConnector();
         client.setApiKey(cohereApiKey);
