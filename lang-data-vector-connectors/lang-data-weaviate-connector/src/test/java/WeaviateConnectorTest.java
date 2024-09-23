@@ -39,6 +39,7 @@ class WeaviateConnectorTest {
 
     @Test
     @Order(1)
+    @Tag("requiresApiKey")
     void getSourceClient() {
         WeaviateClient sourceClient = client.getSourceClient();
         assertNotNull(sourceClient);
@@ -46,17 +47,20 @@ class WeaviateConnectorTest {
 
     @Test
     @Order(2)
+    @Tag("requiresApiKey")
     void testClient() {
         assertNotNull(client);
     }
     @Test
     @Order(3)
+    @Tag("requiresApiKey")
     void createClass() {
         connectorClient.createClass("Dummy", "The class contains dummy data");
     }
 
     @Test
     @Order(4)
+    @Tag("requiresApiKey")
     void getSchema() {
         String schema = connectorClient.getSchema();
         assertNotNull(schema);
@@ -65,6 +69,7 @@ class WeaviateConnectorTest {
 
     @Test
     @Order(5)
+    @Tag("requiresApiKey")
     void testGetClass() {
         String result = connectorClient.getClass("Dummy");
 
@@ -74,6 +79,7 @@ class WeaviateConnectorTest {
 
     @Test
     @Order(6)
+    @Tag("requiresApiKey")
     void testAddDocumentsAndSearchSimilarity() throws LoaderException {
         connectorClient.setClassName("Dummy");
         List<Document> document = new TextConnector().loadData(TEXT_URL);
@@ -87,6 +93,7 @@ class WeaviateConnectorTest {
 
     @Test
     @Order(7)
+    @Tag("requiresApiKey")
     void testDeleteClass() {
         connectorClient.deleteClass("Dummy");
     }
