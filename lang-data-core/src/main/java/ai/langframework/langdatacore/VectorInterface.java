@@ -4,11 +4,12 @@ import java.util.List;
 
 public interface VectorInterface {
 
-    public enum EmbeddingClientType {
-        COHERE,
-        OPENAI
-    }
-    void addDocuments(List<Document> documents );
+  public enum EmbeddingClientType {
+    COHERE,
+    OPENAI
+  }
 
-    List<Document> searchSimilarity(String query);
+  void addDocuments(List<Document> documents);
+
+  List<Document> searchSimilarity(String query);
 }

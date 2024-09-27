@@ -1,7 +1,7 @@
 package ai.langframework.langdatas3;
 
 public class Main {
-    public static void main(String[] args) {
-        System.out.println("S3 Connector Main");
-    }
+  public static void main(String[] args) {
+    System.out.println("S3 Connector Main");
+  }
 }
