@@ -1,27 +1,32 @@
-
 plugins {
     id 'java'
     id 'maven-publish'
-    id "com.diffplug.spotless" version "6.21.0"
+    id 'com.diffplug.spotless' version '6.21.0'
 }
 
-group 'ai.langframework.langdata-dev'
-version '0.0.1'
+group = 'ai.langframework.langdata-dev'
+version = '0.0.1'
+
 allprojects {
     repositories {
         mavenCentral()
-        google()
     }
-}
 
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
+    // Apply common plugins and configuration to all subprojects
+    apply plugin: 'java'
+    apply plugin: 'com.diffplug.spotless'
+
+    spotless {
+        java {
+            googleJavaFormat('1.17.0')
+        }
     }
-}
 
-test {
-    useJUnitPlatform()
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(17)
+        }
+    }
 }
 
 publishing {
@@ -38,13 +43,10 @@ tasks.named('test') {
     }
 }
 
-subprojects {
-    apply plugin: 'java'
-    apply plugin: 'com.diffplug.spotless'
+test {
+    useJUnitPlatform()
+}
 
-    spotless {
-        java {
-            googleJavaFormat('1.17.0')
-        }
-    }
+subprojects {
+    // Inherit configurations from the parent project
 }
