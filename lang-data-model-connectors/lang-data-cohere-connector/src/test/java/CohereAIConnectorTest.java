@@ -15,9 +15,8 @@ import java.util.Map;
 import org.junit.jupiter.api.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-class CohereAIConnectorTest {
+public class CohereAIConnectorTest {
   private String cohereApiKey = Config.getApiKey("COHERE_API_KEY");
-  ;
   private CohereAIConnector client;
   private CohereAIConnectorClient connectorClient;
   private static final String TEXT_URL = PathFileConstants.TEXT_FILE_URL;

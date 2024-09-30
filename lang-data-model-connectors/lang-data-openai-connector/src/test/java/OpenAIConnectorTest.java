@@ -20,9 +20,7 @@ import org.junit.jupiter.api.TestInstance;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class OpenAIConnectorTest {
-
   private String openAiApiKey = Config.getApiKey("OPENAI_API_KEY");
-
   private OpenAIConnector client;
   private OpenAIConnectorClient connectorClient;
   private static final String TEXT_URL = PathFileConstants.TEXT_FILE_URL;
