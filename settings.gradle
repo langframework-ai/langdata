@@ -1,49 +1,34 @@
 rootProject.name = 'langdata'
-include 'lang-data-core'
-include 'lang-data-vector-connectors'
-include 'lang-data-vector-connectors:lang-data-milvus-connector'
-findProject(':lang-data-vector-connectors:lang-data-milvus-connector')?.name = 'lang-data-milvus-connector'
-include 'lang-data-file-connectors'
-include 'lang-data-file-connectors:lang-data-pdf-connector'
-findProject(':lang-data-file-connectors:lang-data-pdf-connector')?.name = 'lang-data-pdf-connector'
-include 'lang-data-file-connectors:lang-data-csv-connector'
-findProject(':lang-data-file-connectors:lang-data-csv-connector')?.name = 'lang-data-csv-connector'
-include 'lang-data-file-connectors:lang-data-html-connector'
-findProject(':lang-data-file-connectors:lang-data-html-connector')?.name = 'lang-data-html-connector'
-include 'lang-data-file-connectors:lang-data-json-connector'
-findProject(':lang-data-file-connectors:lang-data-json-connector')?.name = 'lang-data-json-connector'
-include 'lang-data-file-connectors:lang-data-pptx-connector'
-findProject(':lang-data-file-connectors:lang-data-pptx-connector')?.name = 'lang-data-pptx-connector'
-include 'lang-data-file-connectors:lang-data-docx-connector'
-findProject(':lang-data-file-connectors:lang-data-docx-connector')?.name = 'lang-data-docx-connector'
-include 'lang-data-file-connectors:lang-data-pdf-connector'
-findProject(':lang-data-file-connectors:lang-data-pdf-connector')?.name = 'lang-data-pdf-connector'
-include 'lang-data-file-connectors:lang-data-text-connector'
-findProject(':lang-data-file-connectors:lang-data-text-connector')?.name = 'lang-data-text-connector'
-include 'lang-data-model-connectors'
-include 'lang-data-model-connectors:lang-data-openai-connector'
-findProject(':lang-data-model-connectors:lang-data-openai-connector')?.name = 'lang-data-openai-connector'
-include 'lang-data-model-connectors:lang-data-cohere-connector'
-findProject(':lang-data-model-connectors:lang-data-cohere-connector')?.name = 'lang-data-cohere-connector'
-include 'lang-data-vector-connectors:lang-data-pinecone-connector'
-findProject(':lang-data-vector-connectors:lang-data-pinecone-connector')?.name = 'lang-data-pinecone-connector'
-include 'lang-data-vector-connectors:lang-data-weaviate-connector'
-findProject(':lang-data-vector-connectors:lang-data-weaviate-connector')?.name = 'lang-data-weaviate-connector'
-include 'lang-data-vector-connectors:lang-data-pgvector-connector'
-findProject(':lang-data-vector-connectors:lang-data-pgvector-connector')?.name = 'lang-data-pgvector-connector'
-include 'lang-data-saas-connectors'
-include 'lang-data-saas-connectors:lang-data-s3-connector'
-findProject(':lang-data-saas-connectors:lang-data-s3-connector')?.name = 'lang-data-s3-connector'
-include 'lang-data-saas-connectors:lang-data-github-connector'
-findProject(':lang-data-saas-connectors:lang-data-github-connector')?.name = 'lang-data-github-connector'
-include 'lang-data-saas-connectors:lang-data-sql-database-connector'
-findProject(':lang-data-saas-connectors:lang-data-sql-database-connector')?.name = 'lang-data-sql-database-connector'
-include 'lang-data-saas-connectors:lang-data-wikipedia-connector'
-findProject(':lang-data-saas-connectors:lang-data-wikipedia-connector')?.name = 'lang-data-wikipedia-connector'
-include 'lang-data-saas-connectors:lang-data-zapier-connector'
-findProject(':lang-data-saas-connectors:lang-data-zapier-connector')?.name = 'lang-data-zapier-connector'
-include 'lang-data-prompt-connectors'
-include 'lang-data-prompt-connectors:lang-data-prompt-manager'
-findProject(':lang-data-prompt-connectors:lang-data-prompt-manager')?.name = 'lang-data-prompt-manager'
-include 'lang-data-connector-factory'
 
+// Define a map of project paths to their new names
+def projectMappings = [
+        ':lang-data-vector-connectors:lang-data-milvus-connector'      : 'lang-data-milvus-connector',
+        ':lang-data-file-connectors:lang-data-pdf-connector'           : 'lang-data-pdf-connector',
+        ':lang-data-file-connectors:lang-data-csv-connector'           : 'lang-data-csv-connector',
+        ':lang-data-file-connectors:lang-data-html-connector'          : 'lang-data-html-connector',
+        ':lang-data-file-connectors:lang-data-json-connector'          : 'lang-data-json-connector',
+        ':lang-data-file-connectors:lang-data-pptx-connector'          : 'lang-data-pptx-connector',
+        ':lang-data-file-connectors:lang-data-docx-connector'          : 'lang-data-docx-connector',
+        ':lang-data-file-connectors:lang-data-text-connector'          : 'lang-data-text-connector',
+        ':lang-data-model-connectors:lang-data-openai-connector'       : 'lang-data-openai-connector',
+        ':lang-data-model-connectors:lang-data-cohere-connector'       : 'lang-data-cohere-connector',
+        ':lang-data-vector-connectors:lang-data-pinecone-connector'    : 'lang-data-pinecone-connector',
+        ':lang-data-vector-connectors:lang-data-weaviate-connector'    : 'lang-data-weaviate-connector',
+        ':lang-data-vector-connectors:lang-data-pgvector-connector'    : 'lang-data-pgvector-connector',
+        ':lang-data-saas-connectors:lang-data-s3-connector'            : 'lang-data-s3-connector',
+        ':lang-data-saas-connectors:lang-data-github-connector'        : 'lang-data-github-connector',
+        ':lang-data-saas-connectors:lang-data-sql-database-connector'  : 'lang-data-sql-database-connector',
+        ':lang-data-saas-connectors:lang-data-wikipedia-connector'     : 'lang-data-wikipedia-connector',
+        ':lang-data-saas-connectors:lang-data-zapier-connector'        : 'lang-data-zapier-connector',
+        ':lang-data-prompt-connectors:lang-data-prompt-manager'        : 'lang-data-prompt-manager'
+]
+
+// Include main projects
+include 'lang-data-core', 'lang-data-vector-connectors', 'lang-data-file-connectors', 'lang-data-model-connectors',
+        'lang-data-saas-connectors', 'lang-data-prompt-connectors', 'lang-data-connector-factory'
+
+// Dynamically include and rename projects from the map
+projectMappings.each { path, name ->
+    include path
+    findProject(path)?.name = name
+}
