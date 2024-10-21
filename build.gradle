@@ -37,14 +37,10 @@ publishing {
     }
 }
 
-tasks.named('test') {
-    useJUnitPlatform {
-        excludeTags 'requiresApiKey'
-    }
-}
-
 test {
-    useJUnitPlatform()
+    useJUnitPlatform {
+        excludeTags 'requiresApiKey'  // Ensure correct exclusion of tags
+    }
 }
 
 subprojects {
