@@ -32,9 +32,10 @@ java {
     }
 }
 test {
-    useJUnitPlatform()
+    useJUnitPlatform {
+        excludeTags 'requiresApiKey'  // Ensure correct exclusion of tags
+    }
 }
-
 publishing {
     publications {
         mavenJava(MavenPublication) {
